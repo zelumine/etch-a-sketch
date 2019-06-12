@@ -1,6 +1,8 @@
 const containerDiv = document.getElementById("container");
 const gridDiv = document.createElement("div");
 const clearButton = document.getElementById("clear");
+const rainbowButton = document.getElementById("rainbow");
+const classicButton = document.getElementById("classic");
 let num = 16;
 
 function createGrid() {
@@ -33,9 +35,28 @@ gridDiv.addEventListener("mouseover", changeBackground);
 function clear() {
     gridDiv.innerHTML = "";
     gridDiv.style.border = "none";
+    gridDiv.style.background = "none";
     num = prompt("How many squares per side do you want?");
     createGrid();
     containerDiv.appendChild(gridDiv);
 }
 
+function rainbow(e) {
+    let r = Math.floor((Math.random() * 255) + 1);
+    let g = Math.floor((Math.random() * 255) + 1);
+    let b = Math.floor((Math.random() * 255) + 1);
+    e.target.style.background = `rgb(${r}, ${g}, ${b})`;
+    gridDiv.addEventListener("mouseover", rainbow);
+}
+
+function classic(e) {
+    gridDiv.removeEventListener("mouseover", rainbow);
+    gridDiv.addEventListener("mouseover", changeBackground);
+    if(e.target.style.background !== "") {
+        e.target.classList.add("changeBackground");
+    }
+}
+
 clearButton.addEventListener("click", clear);
+rainbowButton.addEventListener("click", rainbow);
+classicButton.addEventListener("click", classic);
