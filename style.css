@@ -1,7 +1,22 @@
-#container {
-    width: 80vw;
-    height: 80vh;
+@import url('https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700&display=swap');
+
+body {
+    width: 98vw;
+    height: auto;
 } 
+
+.title {
+    font-family: "Cabin Sketch";
+    text-align: center;
+    font-size: 54px;
+    padding: 0;
+    margin: 10px;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
 
 #clear {
     margin: 15px 5px;
@@ -12,6 +27,7 @@
     border-radius: 5px;
     border: none;
     color: #6E6E6E;
+    font-weight: bold;
     font-size: 16px;
 }
 
@@ -30,16 +46,16 @@
     width: 150px;
     border-radius: 5px;
     border: none;
+    color: white;
+    font-weight: bold;
     background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, purple);
     font-size: 16px;
-    opacity: 0.8;
 }
 
 #rainbow:hover {
     border: 1px solid #6E6E6E;
     color: black;
     box-shadow: 2px 3px 5px #6E6E6E;
-    opacity: 1;
 }
 
 #classic {
@@ -50,8 +66,10 @@
     width: 150px;
     border-radius: 5px;
     border: none;
+    color: white;
     background: blue;
     font-size: 16px;
+    font-weight: bold;
 }
 
 #classic:hover {
@@ -61,7 +79,7 @@
 }
 
 .changeBackground {
-    background: blue;
+    background: rgb(0, 0, 255);
 }
 
 .grid {

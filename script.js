@@ -6,8 +6,8 @@ const classicButton = document.getElementById("classic");
 let num = 16;
 
 function createGrid() {
-    gridDiv.style.height = "850px";
-    gridDiv.style.width = "850px";
+    gridDiv.style.height = "750px";
+    gridDiv.style.width = "750px";
     gridDiv.style.display = "grid";
     gridDiv.style.gridTemplateColumns = "repeat(" + num + ", 1fr)";
     gridDiv.style.gridTemplateRows = "repeat(" + num + ", 1fr)";
@@ -41,20 +41,22 @@ function clear() {
     containerDiv.appendChild(gridDiv);
 }
 
-function rainbow(e) {
+function rainbowBackground(e) {
     let r = Math.floor((Math.random() * 255) + 1);
     let g = Math.floor((Math.random() * 255) + 1);
     let b = Math.floor((Math.random() * 255) + 1);
-    e.target.style.background = `rgb(${r}, ${g}, ${b})`;
-    gridDiv.addEventListener("mouseover", rainbow);
+    e.target.style.background =  `rgb(${r}, ${g}, ${b})`;
 }
 
-function classic(e) {
-    gridDiv.removeEventListener("mouseover", rainbow);
-    gridDiv.addEventListener("mouseover", changeBackground);
-    if(e.target.style.background !== "") {
-        e.target.classList.add("changeBackground");
-    }
+function rainbow() {
+    gridDiv.addEventListener("mouseover", rainbowBackground);
+}
+
+function classic() {
+    gridDiv.removeEventListener("mouseover", rainbowBackground);
+    gridDiv.addEventListener("mouseover", (e) => {
+        e.target.style.background = "rgb(0, 0, 255)";
+    });
 }
 
 clearButton.addEventListener("click", clear);
