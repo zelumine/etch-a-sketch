@@ -6,8 +6,8 @@ const classicButton = document.getElementById("classic");
 let num = 16;
 
 function createGrid() {
-    gridDiv.style.height = "750px";
-    gridDiv.style.width = "750px";
+    gridDiv.style.height = "500px";
+    gridDiv.style.width = "500px";
     gridDiv.style.display = "grid";
     gridDiv.style.gridTemplateColumns = "repeat(" + num + ", 1fr)";
     gridDiv.style.gridTemplateRows = "repeat(" + num + ", 1fr)";
